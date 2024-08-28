@@ -36,7 +36,6 @@ class UI:
 
 
     def sidebar(self):
-        st.image("https://images.unsplash.com/photo-1516245821404-177349d5d7f3", use_column_width=True)
         st.sidebar.title("Email Spam Classifier")
         st.sidebar.markdown("Use this app to classify emails as **Spam** or **Not Spam** based on their content.")
     
