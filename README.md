@@ -42,4 +42,4 @@ To set up the project locally, follow these steps:
 To use the email spam classification model, you can run the following command:
 
 ```bash
-python main.py
+python app.py
