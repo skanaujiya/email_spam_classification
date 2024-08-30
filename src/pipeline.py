@@ -3,11 +3,10 @@ import numpy as np
 import gensim.downloader as api
 from gensim.models import Word2Vec
 
-word2vec = api.load('word2vec-google-news-300')
 
 ## here we find the average wordToVector
 def avg_word2vec(corpus):
-
+    word2vec = api.load('word2vec-google-news-300')
     embeded_corpus = []
     for doc in corpus:
         vector = []
