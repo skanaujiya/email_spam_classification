@@ -1,19 +1,26 @@
 from src.ui_component import UI
-from src.preprocessing import pre_processing
-from src.pipeline import avg_word2vec
-import pickle as pkl
+import joblib
+from src.preprocessing import Preprocess
 
+# Set up joblib memory for caching
+memory = joblib.Memory(location='.', verbose=0)
+
+# Cache the pipeline loading
+@memory.cache
+def load_pipeline():
+    # Load your pipeline here
+    return joblib.load('models/model.pkl')
+
+
+pipline = load_pipeline()
 ui = UI()
 
-# Load the trained model
 
-with open('models/model.pkl', 'rb') as file:
-    model = pkl.load(file)
 
 def predict_spam(email_text):
     # Placeholder for the actual prediction logic
     # Replace this with your actual model and prediction logic
-    if model.predict([email_text]):
+    if pipline.predict([email_text]):
         return "Spam"
     else:
         return "Not Spam"
