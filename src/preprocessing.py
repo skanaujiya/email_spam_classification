@@ -4,18 +4,12 @@ import re
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
-def check_and_download_stopwords():
-    try:
-        nltk.data.find('corpora/stopwords')
-        nltk.data.find('corpora/wordnet')
-    except LookupError:
-        # If not found, download stopwords
-        nltk.download('stopwords')
-        nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('wordnet')
+       
 
-class Preprocess :
+class Preprocess:
     def __init__(self) -> None:
-        check_and_download_stopwords()
         self.stemmer = PorterStemmer()
 
     def pre_processing(self, messages):
